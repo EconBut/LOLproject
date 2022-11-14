@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+    <title>WhatIsYourTier</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap"
+          rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Noto Serif KR', sans-serif;
+        }
+
+        .mypic {
+            width: 100%;
+            height: 300px;
+
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://www.leagueoflegends.co.kr/upload/EditorImages/20160724175134_8QXtFDWe.jpg');
+            background-position: center 22%;
+            background-size: cover;
+
+            color: white;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mypic > button {
+            margin-top: 20px;
+            width: 20%;
+        }
+
+        .mybtn {
+            margin-top: 5px;
+            width: ? ?%;
+
+        }
+
+
+        .mybox > h1 {
+            width: 100%;
+            margin: auto;
+        }
+
+        .myCook {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .myCook > input {
+            width: 70%;
+        }
+
+        .myCook > button {
+            margin: 10px 50px 20px 50px;
+            width: 50%;
+            height: 70px;
+        }
+
+        .mybox > li {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 10px;
+            min-height: 48px;
+        }
+
+        .mybox > li > h2 {
+            max-width: 75%;
+            font-size: 20px;
+            font-weight: 500;
+            margin-right: auto;
+            margin-bottom: 0px;
+        }
+
+        .mybox > li > h2.done {
+            text-decoration: line-through
+        }
+    </style>
+
+</head>
+<body>
+<div class="mypic">
+    <h1>League Of Legends: GNT</h1>
+    <h7>GNT implies "So what is your tier?" in Korean</h7>
+    <button onclick="window.location.href='/로그인'" type="button" class="btn btn-success">Sign In Here</button>
+    <div class="mybtn">
+        <button onclick=url"https://download.kr.riotgames.com/league" type="button" class="btn btn-primary">Play Game
+        </button>
+    </div>
+
+</div>
+
+<div class="myCook">
+    <button onclick="window.location.href='/게시판'" type="button" class="btn btn-danger">자유게시판</button>
+    <button onclick="window.location.href='/꿀팁'" type="button" class="btn btn-warning">꿀팁저장소</button>
+</div>
+
+<div class="card text">
+
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="pills-top-tab" data-bs-toggle="pill" data-bs-target="#pills-top"
+                    type="button" role="tab" aria-controls="pills-top" aria-selected="true">탑
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-jug-tab" data-bs-toggle="pill" data-bs-target="#pills-jug"
+                    type="button" role="tab" aria-controls="pills-jug" aria-selected="false">정글
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-mid-tab" data-bs-toggle="pill" data-bs-target="#pills-mid"
+                    type="button" role="tab" aria-controls="pills-mid" aria-selected="false">미드
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-adc-tab" data-bs-toggle="pill" data-bs-target="#pills-adc"
+                    type="button" role="tab" aria-controls="pills-adc" aria-selected="false">원딜
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-sup-tab" data-bs-toggle="pill" data-bs-target="#pills-sup"
+                    type="button" role="tab" aria-controls="pills-sup" aria-selected="false">서폿
+            </button>
+        </li>
+
+    </ul>
+
+
+    <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-top" role="tabpanel" aria-labelledby="pills-top-tab" tabindex="0">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>순위</th>
+                    <th>챔피언</th>
+                    <th>승률</th>
+                    <th>픽률</th>
+                    <th>밴율</th>
+                    <th>카운터</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Darius.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_64&amp;v=1668416556212"
+                            width="32" height="32"> 다리우스</img></td>
+                    <td>51.39%</td>
+                    <td>9.32%</td>
+                    <td>27.95%</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Heimerdinger.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&amp;v=1668416556212"
+                            width="24" height="24">
+                        <img src="https://opgg-static.akamaized.net/meta/images/lol/champion/Zac.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668416556212"
+                             width="24" height="24">
+                        <img src="https://opgg-static.akamaized.net/meta/images/lol/champion/Vayne.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668416556212"
+                             width="24" height="24">
+                    </td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><img
+                            src=""
+                            width="32" height="32"> 챔프이름</img></td>
+                    <td>52.15%</td>
+                    <td>5.09%</td>
+                    <td>13.30%</td>
+                    <td><img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><img
+                            src=""
+                            width="32" height="32"> 챔프이름</img></td>
+                    <td>52.15%</td>
+                    <td>5.09%</td>
+                    <td>13.30%</td>
+                    <td><img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><img
+                            src=""
+                            width="32" height="32"> 챔프이름</img></td>
+                    <td>52.15%</td>
+                    <td>5.09%</td>
+                    <td>13.30%</td>
+                    <td><img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><img
+                            src=""
+                            width="32" height="32"> 챔프이름</img></td>
+                    <td>52.15%</td>
+                    <td>5.09%</td>
+                    <td>13.30%</td>
+                    <td><img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="pills-jug" role="tabpanel" aria-labelledby="pills-jug-tab" tabindex="0">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>순위</th>
+                    <th>챔피언</th>
+                    <th>승률</th>
+                    <th>픽률</th>
+                    <th>밴율</th>
+                    <th>카운터</th>
+                </tr>
+                </thead>
+                <tr>
+                    <td>1</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Udyr.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_64&v=1668416556212"
+                            width="32" height="32"> 우디르</img></td>
+                    <td>52.15%</td>
+                    <td>5.09%</td>
+                    <td>13.30%</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/MonkeyKing.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668416556212"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Gragas.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668416556212"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Nunu.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668416556212"
+                            width="24" height="24"</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><img
+                            src=""
+                            width="32" height="32"> 챔프이름</img></td>
+                    <td>52.15%</td>
+                    <td>5.09%</td>
+                    <td>13.30%</td>
+                    <td><img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><img
+                            src=""
+                            width="32" height="32"> 챔프이름</img></td>
+                    <td>52.15%</td>
+                    <td>5.09%</td>
+                    <td>13.30%</td>
+                    <td><img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><img
+                            src=""
+                            width="32" height="32"> 챔프이름</img></td>
+                    <td>52.15%</td>
+                    <td>5.09%</td>
+                    <td>13.30%</td>
+                    <td><img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><img
+                            src=""
+                            width="32" height="32"> 챔프이름</img></td>
+                    <td>52.15%</td>
+                    <td>5.09%</td>
+                    <td>13.30%</td>
+                    <td><img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><img
+                            src=""
+                            width="32" height="32"> 챔프이름</img></td>
+                    <td>52.15%</td>
+                    <td>5.09%</td>
+                    <td>13.30%</td>
+                    <td><img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                </tr>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="pills-mid" role="tabpanel" aria-labelledby="pills-mid-tab" tabindex="0">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>순위</th>
+                    <th>챔피언</th>
+                    <th>승률</th>
+                    <th>픽률</th>
+                    <th>밴율</th>
+                    <th>카운터</th>
+                </tr>
+                </thead>
+                <tr>
+                    <td>1</td>
+                    <td><img
+                            src=""
+                            width="32" height="32"> 챔프이름</img></td>
+                    <td>52.15%</td>
+                    <td>5.09%</td>
+                    <td>13.30%</td>
+                    <td><img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><img
+                            src=""
+                            width="32" height="32"> 챔프이름</img></td>
+                    <td>52.15%</td>
+                    <td>5.09%</td>
+                    <td>13.30%</td>
+                    <td><img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><img
+                            src=""
+                            width="32" height="32"> 챔프이름</img></td>
+                    <td>52.15%</td>
+                    <td>5.09%</td>
+                    <td>13.30%</td>
+                    <td><img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><img
+                            src=""
+                            width="32" height="32"> 챔프이름</img></td>
+                    <td>52.15%</td>
+                    <td>5.09%</td>
+                    <td>13.30%</td>
+                    <td><img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><img
+                            src=""
+                            width="32" height="32"> 챔프이름</img></td>
+                    <td>52.15%</td>
+                    <td>5.09%</td>
+                    <td>13.30%</td>
+                    <td><img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                </tr>
+
+            </table>
+
+
+        </div>
+        <div class="tab-pane fade" id="pills-adc" role="tabpanel" aria-labelledby="pills-adc-tab" tabindex="0">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>순위</th>
+                    <th>챔피언</th>
+                    <th>승률</th>
+                    <th>픽률</th>
+                    <th>밴율</th>
+                    <th>카운터</th>
+                </tr>
+                </thead>
+                <tr>
+                    <td>1</td>
+                    <td><img
+                            src=""
+                            width="32" height="32"> </img></td>
+                    <td>52.15%</td>
+                    <td>5.09%</td>
+                    <td>13.30%</td>
+                    <td><img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><img
+                            src=""
+                            width="32" height="32"> 챔프이름</img></td>
+                    <td>52.15%</td>
+                    <td>5.09%</td>
+                    <td>13.30%</td>
+                    <td><img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><img
+                            src=""
+                            width="32" height="32"> 챔프이름</img></td>
+                    <td>52.15%</td>
+                    <td>5.09%</td>
+                    <td>13.30%</td>
+                    <td><img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><img
+                            src=""
+                            width="32" height="32"> 챔프이름</img></td>
+                    <td>52.15%</td>
+                    <td>5.09%</td>
+                    <td>13.30%</td>
+                    <td><img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><img
+                            src=""
+                            width="32" height="32"> 챔프이름</img></td>
+                    <td>52.15%</td>
+                    <td>5.09%</td>
+                    <td>13.30%</td>
+                    <td><img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                </tr>
+
+            </table>
+
+
+        </div>
+        <div class="tab-pane fade" id="pills-sup" role="tabpanel" aria-labelledby="pills-sup-tab" tabindex="0">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>순위</th>
+                    <th>챔피언</th>
+                    <th>승률</th>
+                    <th>픽률</th>
+                    <th>밴율</th>
+                    <th>카운터</th>
+                </tr>
+                </thead>
+                <tr>
+                    <td>1</td>
+                    <td><img
+                            src=""
+                            width="32" height="32"> 챔프이름</img></td>
+                    <td>52.15%</td>
+                    <td>5.09%</td>
+                    <td>13.30%</td>
+                    <td><img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><img
+                            src=""
+                            width="32" height="32"> 챔프이름</img></td>
+                    <td>52.15%</td>
+                    <td>5.09%</td>
+                    <td>13.30%</td>
+                    <td><img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><img
+                            src=""
+                            width="32" height="32"> 챔프이름</img></td>
+                    <td>52.15%</td>
+                    <td>5.09%</td>
+                    <td>13.30%</td>
+                    <td><img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><img
+                            src=""
+                            width="32" height="32"> 챔프이름</img></td>
+                    <td>52.15%</td>
+                    <td>5.09%</td>
+                    <td>13.30%</td>
+                    <td><img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><img
+                            src=""
+                            width="32" height="32"> 챔프이름</img></td>
+                    <td>52.15%</td>
+                    <td>5.09%</td>
+                    <td>13.30%</td>
+                    <td><img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                    <img
+                            src=""
+                            width="24" height="24"</td>
+                </tr>
+
+            </table>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</body>
+</html>
