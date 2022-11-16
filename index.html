@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+    <title>WhatIsYourTier</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap"
+          rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Noto Serif KR', sans-serif;
+        }
+
+        .mypic {
+            width: 100%;
+            height: 300px;
+
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://www.leagueoflegends.co.kr/upload/EditorImages/20160724175134_8QXtFDWe.jpg');
+            background-position: center 22%;
+            background-size: cover;
+
+            color: white;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mypic > button {
+            margin-top: 20px;
+            width: 20%;
+        }
+
+        .mybtn {
+            margin-top: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: ;
+
+        }
+
+
+        .mybox > h1 {
+            width: 100%;
+            margin: auto;
+        }
+
+        .myCook {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .myCook > input {
+            width: 70%;
+        }
+
+        .myCook > button {
+            margin: 10px 50px 20px 50px;
+            width: 50%;
+            height: 70px;
+        }
+
+        .mybox > li {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 10px;
+            min-height: 48px;
+        }
+
+        .mybox > li > h2 {
+            max-width: 75%;
+            font-size: 20px;
+            font-weight: 500;
+            margin-right: auto;
+            margin-bottom: 0px;
+        }
+
+        .mybox > li > h2.done {
+            text-decoration: line-through
+        }
+
+
+        .mybx {
+            width: 95%;
+            max-width: 700px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px 0px lightblue;
+            margin: 20px auto;
+        }
+
+        .mybucket {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .mybucket > input {
+            width: 70%;
+        }
+
+        .mybx > li {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 10px;
+            min-height: 48px;
+        }
+
+        .mybx > li > h2 {
+            width: 100px;
+            max-width: 75%;
+            font-size: 20px;
+            font-weight: 500;
+            margin-right: auto;
+            margin-bottom: 0px;
+        }
+
+        .mybx > li > h2.done {
+            text-decoration: line-through
+        }
+
+        .mybx > li > button {
+            width: 150px;
+            margin-left: 20px;
+        }
+        .li{
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+
+        }
+        .li>h2{
+            width: 100px;
+            margin: auto;
+        }
+        #user_info {
+            width: 60%;
+            height: 700px;
+            border: groove;
+            margin-left: 20%;
+            padding-left: 3%;
+            padding-top: 1%;
+            background-color: #eeeeee;
+            display: none;
+        }
+
+        .UserName {
+            font-size: 35px;
+        }
+
+        .rank {
+            margin-top: 50px;
+
+            width: 500px;
+            height: 200px;
+            border: solid 1px;
+            padding: 5px 5px 5px 5px;
+            background-color: white;
+        }
+
+        .rank_font {
+            font-size: 25px;
+            /*padding-top: 15px;*/
+            padding-left: 195px;
+            position: absolute;
+        }
+
+        .tier_box {
+            margin-top: 50px;
+            width: 330px;
+            height: 100px;
+
+        }
+
+        .tier {
+
+            font-size: 20px;
+            padding-left: 190px;
+            padding-top: 10px;
+        }
+
+        .point {
+            padding-left: 230px;
+            padding-top: 5px;
+        }
+
+        .img {
+            margin-top: 20px;
+            position: absolute;
+            width: 150px;
+            margin-left: 14px;
+        }
+
+        .record {
+            font-size: px;
+            width: 150px;
+            height: 180px;
+            /*background-color: skyblue;*/
+            float: right;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .record_font {
+            padding-top: 50%;
+        }
+
+        .record_list {
+            float: right;
+            width: 40%;
+            height: 80%;
+            margin-right: 5%;
+
+            background-color: white;
+            table-layout: fixed;
+        }
+
+        .champion-box {
+            /*background-color: red;*/
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+
+        }
+
+        .season_title {
+            font-size: 25px;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: solid 1px;
+        }
+
+        .info {
+            margin-right: 20%;
+        }
+
+        .kda {
+            margin-right: 20%;
+        }
+        .mylol {
+            width: 95%;
+            max-width: 700px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px 0px cadetblue;
+            margin: 20px auto;
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+        }
+        .mylol > button {
+            width: auto;
+            height: 40px;
+            margin-left: 5px;
+
+        }
+        .mylol > input {
+            width: 400px;
+            height: 40px;
+            margin-left: 7px;
+        }
+        .good {
+            font-size: 25px;
+            margin: auto;
+        }
+    </style>
+    <script>
+        function search() {
+            $('#user_info').show();
+            alert("검색 시작")
+            $('#user_info').empty()
+            //---------------닉네임 입력------------------
+            $.ajax({
+                type: "POST",
+                url: "/search",
+                data: {nicname_give: $('#name_search').val()},
+                success: function (response) {
+                    alert(response['msg'])
+                }
+            })
+            //---------------값 불러오기-------------------
+            $.ajax({
+                type: 'GET',
+                url: '/user_info',
+                data: {},
+                success: function (response) {
+                    let soloRank = response['soloRank']
+                    let freeRank = response['freeRank']
+                    let champion_list = response['champion']
+
+                    console.log(soloRank)
+                    console.log(freeRank)
+                    console.log(champion_list)
+                    let name = soloRank[0]['name']
+                    console.log(name)
+                    let temp_html = `<p class="UserName">${name}</p>`
+                    $('#user_info').append(temp_html)
+                    temp_html = `<div id="record_list" class="record_list">
+                                       <p class="season_title">Season 12 Most Champion</p>
+                                 </div>`
+                    $('#user_info').append(temp_html)
+                    //championlist=====================================================
+                    let cnt = 0;
+                    for (let i = 1; i < champion_list.length; i++) {
+                        if(cnt == 5){
+                            break
+                        }
+                        let champion = champion_list[i]['champion']
+                        let cs = champion_list[i]['cs']
+                        let kda = champion_list[i]['kda']
+                        let kill = champion_list[i]['kill']
+                        let death = champion_list[i]['death']
+                        let assist = champion_list[i]['assist']
+                        let odd = champion_list[i]['Odds'] //승률
+                        let cntgame = champion_list[i]['cntgame']
+                        cnt +=1
+                        let champ_temp_html = `<div class="champion-box">
+                                                        <div class="info">
+                                                            <div class="name">
+                                                                <a>${champion}</a>
+                                                            </div>
+                                                            <div class="cs">CS ${cs}</div>
+                                                        </div>
+                                                        <div class="kda">
+                                                            <div class="" style="position: relative;">
+                                                                <div class="css-954ezp e1g7spwk1">${kda} 평점</div>
+                                                            </div>
+                                                            <div class="detail">${kill} / ${death} / ${assist}</div>
+                                                        </div>
+                                                        <div class="played">
+                                                            <div class="" style="position: relative;">
+                                                                <div class="css-1nuoroq e1g7spwk0">${odd}</div>
+                                                            </div>
+                                                            <div class="count">${cntgame} 게임</div>
+                                                        </div>
+                                                    </div>`
+                        $('#record_list').append(champ_temp_html)
+                    }
+                    //================for문 종료
+                    //=======솔로랭크 append
+                    //solorank ======================================================
+                    let solo_ranking_num = soloRank[0]['ranking_num']
+                    let solo_ranking_per = soloRank[0]['ranking_per']
+                    let solo_league = soloRank[0]['league']
+                    let solo_tier = soloRank[0]['tier']
+                    let solo_point = soloRank[0]['point']
+                    let solo_record = soloRank[0]['record']
+                    let solo_rankimg = soloRank[0]['rankimg']
+                    temp_html = `<div class="rank">
+                                        <p class="rank_font">솔로 랭크</p>
+                                        <div class="record">
+                                            <div class="record_font">
+                                                <p>${solo_record}</p>
+                                            </div>
+                                        </div>
+                                        <img class="img"
+                                             src="https://opgg-static.akamaized.net/images/medals_new/diamond.png?image=q_auto,f_webp,w_144&v=1668582433964">
+                                        <div class="tier_box">
+                                            <p class="tier">${solo_tier}</p>
+                                            <p class="point">${solo_point} LP</p>
+                                        </div>
+                                    </div>
+                                </div>`
+                    $('#user_info').append(temp_html)
+                    //freerank =====================================================
+                    let free_ranking_num = freeRank[0]['ranking_num']
+                    let free_ranking_per = freeRank[0]['ranking_per']
+                    let free_league = freeRank[0]['league']
+                    let free_tier = freeRank[0]['tier']
+                    let free_point = freeRank[0]['point']
+                    let free_record = freeRank[0]['record']
+                    let free_rankimg = freeRank[0]['rankimg']
+                    temp_html = `<div class="rank">
+                                        <p class="rank_font">자유 랭크</p>
+                                        <div class="record">
+                                            <div class="record_font">
+                                                <p>${free_record}</p>
+                                            </div>
+                                        </div>
+                                        <img class="img"
+                                             src="https://opgg-static.akamaized.net/images/medals_new/platinum.png?image=q_auto,f_webp,w_144&v=1668582433769">
+                                        <div class="tier_box">
+                                            <p class="tier">${free_tier}</p>
+                                            <p class="point">${free_point} LP</p>
+                                        </div>
+                                    </div>
+                                </div>`
+                    $('#user_info').append(temp_html)
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+
+<div class="mypic">
+    <h1>League Of Legends: GNT</h1>
+    <h7>GNT implies "So what is your tier?" in Korean</h7>
+    <button onclick="window.location.href='/로그인'" type="button" class="btn btn-success">Sign In Here</button>
+    <div class="mybtn">
+        <button onclick="window.open=('https://www.leagueoflegends.com/ko-kr/')" type="button" class="btn btn-primary">Play Game
+        </button>
+    </div>
+</div>
+
+<div class="myCook">
+    <button onclick="window.location.href='/게시판'" type="button" class="btn btn-danger">자유게시판</button>
+    <button onclick="window.location.href='/꿀팁'" type="button" class="btn btn-warning">꿀팁저장소</button>
+</div>
+
+        <div class="mylol">
+        <h2 class="good">SEARCH</h2>
+        <input id="name_search" type="text" name="name_search" placeholder="Type Your Nickname">
+        <button id="search" onclick="search()" type="button" class="btn btn-outline-success">CLICK</button>
+        </div>
+        <div class="card text">
+            <div id="user_info">
+                <p class="UserName">User Name</p>
+                <p>레더 랭킹 3,241,134위 (상위 74.48%)</p>
+                <div class="record_list">
+                    <p class="season_title">Season 12 Most Champion</p>
+                    <div class="champion-box">
+                        <div class="info">
+                            <div class="name">
+                                <a>다이애나</a>
+                            </div>
+                            <div class="cs">CS 175.3 (6.1)</div>
+                        </div>
+                        <div class="kda">
+                            <div class="" style="position: relative;">
+                                <div class="css-954ezp e1g7spwk1">2.61:1 평점</div>
+                            </div>
+                            <div class="detail">8.6 / 6.4 / 8.0</div>
+                        </div>
+                        <div class="played">
+                            <div class="" style="position: relative;">
+                                <div class="css-1nuoroq e1g7spwk0">58%</div>
+                            </div>
+                            <div class="count">109 게임</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rank">
+                    <p class="rank_font">솔로 랭크</p>
+                    <div class="record">
+                        <div class="record_font">
+                            <p>872전 455승 417패</p>
+                            <p>52.18%</p>
+                        </div>
+                    </div>
+                    <img class="img"
+                         src="https://opgg-static.akamaized.net/images/medals_new/diamond.png?image=q_auto,f_webp,w_144&v=1668582433964">
+                    <div class="tier_box">
+                        <p class="tier">Silver 4</p>
+                        <p class="point">10 LP</p>
+                    </div>
+                </div>
+            </div>
+</div>
+
+
+</div>
+
+<div class="card text">
+<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="pills-top-tab" data-bs-toggle="pill" data-bs-target="#pills-top"
+                    type="button" role="tab" aria-controls="pills-top" aria-selected="true">탑
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-jug-tab" data-bs-toggle="pill" data-bs-target="#pills-jug"
+                    type="button" role="tab" aria-controls="pills-jug" aria-selected="false">정글
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-mid-tab" data-bs-toggle="pill" data-bs-target="#pills-mid"
+                    type="button" role="tab" aria-controls="pills-mid" aria-selected="false">미드
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-adc-tab" data-bs-toggle="pill" data-bs-target="#pills-adc"
+                    type="button" role="tab" aria-controls="pills-adc" aria-selected="false">원딜
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-sup-tab" data-bs-toggle="pill" data-bs-target="#pills-sup"
+                    type="button" role="tab" aria-controls="pills-sup" aria-selected="false">서폿
+            </button>
+        </li>
+    </ul>
+
+
+    <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-top" role="tabpanel" aria-labelledby="pills-top-tab"
+             tabindex="0">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>순위</th>
+                    <th>챔피언</th>
+                    <th>승률</th>
+                    <th>픽률</th>
+                    <th>밴율</th>
+                    <th>카운터</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Darius.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_64&amp;v=1668416556212"
+                            width="32" height="32"> 다리우스</td>
+                    <td>51.39%</td>
+                    <td>9.32%</td>
+                    <td>27.95%</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Heimerdinger.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&amp;v=1668416556212"
+                            width="24" height="24">
+                        <img src="https://opgg-static.akamaized.net/meta/images/lol/champion/Zac.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668416556212"
+                             width="24" height="24">
+                        <img src="https://opgg-static.akamaized.net/meta/images/lol/champion/Vayne.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668416556212"
+                             width="24" height="24">
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Shen.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_64&v=1668444098360"
+                            width="32" height="32"> 쉔</td>
+                    <td>52.52%</td>
+                    <td>5.13%</td>
+                    <td>0.95%</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Olaf.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668444098360"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Illaoi.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668444098360"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Singed.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668444098360"
+                            width="24" height="24"</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Aatrox.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_64&v=1668444098360"
+                            width="32" height="32"> 아트록스</td>
+                    <td>49.46%</td>
+                    <td>14.29%</td>
+                    <td>35.92%</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Quinn.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668444098360"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/MonkeyKing.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668444098360"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Singed.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668444098360"
+                            width="24" height="24"</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Fiora.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_64&v=1668444098360"
+                            width="32" height="32"> 피오라</td>
+                    <td>50.44%</td>
+                    <td>8.62%</td>
+                    <td>18.66%</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Heimerdinger.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668444098360"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Poppy.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668444098360"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Quinn.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668444098360"
+                            width="24" height="24"</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Mordekaiser.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_64&v=1668492741733"
+                            width="32" height="32"> 모데카이저</td>
+                    <td>51.46%</td>
+                    <td>5.87%</td>
+                    <td>5.88%</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Lillia.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741733"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Vayne.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741733"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Rengar.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741733"
+                            width="24" height="24"</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="pills-jug" role="tabpanel" aria-labelledby="pills-jug-tab" tabindex="0">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>순위</th>
+                    <th>챔피언</th>
+                    <th>승률</th>
+                    <th>픽률</th>
+                    <th>밴율</th>
+                    <th>카운터</th>
+                </tr>
+                </thead>
+                <tr>
+                    <td>1</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Udyr.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_64&v=1668416556212"
+                            width="32" height="32"> 우디르</img></td>
+                    <td>52.15%</td>
+                    <td>5.09%</td>
+                    <td>13.30%</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/MonkeyKing.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668416556212"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Gragas.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668416556212"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Nunu.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668416556212"
+                            width="24" height="24"</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Belveth.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_64&v=1668492741460"
+                            width="32" height="32"> 벨베스</td>
+                    <td>51.47%</td>
+                    <td>6.41%</td>
+                    <td>29.77%</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Skarner.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Gragas.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Rammus.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Fiddlesticks.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_64&v=1668492741460"
+                            width="32" height="32"> 피들스틱</td>
+                    <td>52.44%</td>
+                    <td>4.45%</td>
+                    <td>7.02%</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Volibear.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Maokai.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Rammus.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Graves.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_64&v=1668492741460"
+                            width="32" height="32"> 그레이브즈</td>
+                    <td>49.57%</td>
+                    <td>15.75%</td>
+                    <td>22.07%</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Skarner.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Udyr.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Volibear.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Ekko.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_64&v=1668492741460"
+                            width="32" height="32"> 에코</td>
+                    <td>50.70%</td>
+                    <td>8.70%</td>
+                    <td>5.27%</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Vi.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Udyr.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Skarner.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                </tr>
+
+            </table>
+        </div>
+        <div class="tab-pane fade" id="pills-mid" role="tabpanel" aria-labelledby="pills-mid-tab" tabindex="0">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>순위</th>
+                    <th>챔피언</th>
+                    <th>승률</th>
+                    <th>픽률</th>
+                    <th>밴율</th>
+                    <th>카운터</th>
+                </tr>
+                </thead>
+                <tr>
+                    <td>1</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Vex.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_64&v=1668492741460"
+                            width="32" height="32"> 벡스</td>
+                    <td>52.17%</td>
+                    <td>7.27%</td>
+                    <td>11.64%</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Twitch.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Swain.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Rumble.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Zed.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_64&v=1668492741460"
+                            width="32" height="32"> 제드</td>
+                    <td>51.25%</td>
+                    <td>8.69%</td>
+                    <td>32.59%</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Pantheon.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Rumble.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Anivia.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Syndra.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_64&v=1668492741460"
+                            width="32" height="32"> 신드라</td>
+                    <td>50.65%</td>
+                    <td>12.45%</td>
+                    <td>13.07%</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Zed.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Katarina.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Fizz.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Sylas.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_64&v=1668492741460"
+                            width="32" height="32"> 사일러스</td>
+                    <td>49.30%</td>
+                    <td>16.60%</td>
+                    <td>12.35%</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Heimerdinger.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Singed.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Cassiopeia.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Viktor.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_64&v=1668492741460"
+                            width="32" height="32"> 빅토르</td>
+                    <td>50.11%</td>
+                    <td>10.26%</td>
+                    <td>8.15%</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Singed.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Brand.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Twitch.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                </tr>
+
+            </table>
+
+
+        </div>
+        <div class="tab-pane fade" id="pills-adc" role="tabpanel" aria-labelledby="pills-adc-tab" tabindex="0">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>순위</th>
+                    <th>챔피언</th>
+                    <th>승률</th>
+                    <th>픽률</th>
+                    <th>밴율</th>
+                    <th>카운터</th>
+                </tr>
+                </thead>
+                <tr>
+                    <td>1</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Kaisa.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_64&v=1668492741460"
+                            width="32" height="32"> 카이사</td>
+                    <td>50.38%</td>
+                    <td>28.01%</td>
+                    <td>8.47%</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Karthus.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Nilah.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Seraphine.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Jhin.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_64&v=1668492741460"
+                            width="32" height="32"> 진</td>
+                    <td>51.41%</td>
+                    <td>15.69%</td>
+                    <td>1.36%</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Tristana.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Seraphine.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Samira.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Caitlyn.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_64&v=1668492741460"
+                            width="32" height="32"> 케이틀린</td>
+                    <td>49.78%</td>
+                    <td>21.25%</td>
+                    <td>18.41%</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Seraphine.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Ziggs.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Jhin.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460    "
+                            width="24" height="24"</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Samira.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_64&v=1668492741460"
+                            width="32" height="32">사미라</td>
+                    <td>51.24%</td>
+                    <td>9.46%</td>
+                    <td>21.96%</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Karthus.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Nilah.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Jinx.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Tristana.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_64&v=1668492741460"
+                            width="32" height="32"> 트리스타나</td>
+                    <td>51.79%</td>
+                    <td>7.63%</td>
+                    <td>1.88%</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Nilah.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Karthus.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/KogMaw.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                </tr>
+
+            </table>
+
+
+        </div>
+        <div class="tab-pane fade" id="pills-sup" role="tabpanel" aria-labelledby="pills-sup-tab" tabindex="0">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>순위</th>
+                    <th>챔피언</th>
+                    <th>승률</th>
+                    <th>픽률</th>
+                    <th>밴율</th>
+                    <th>카운터</th>
+                </tr>
+                </thead>
+                <tr>
+                    <td>1</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Nami.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_64&v=1668492741460"
+                            width="32" height="32"> 나미</td>
+                    <td>51.98%</td>
+                    <td>14.56%</td>
+                    <td>3.75%</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Maokai.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Sona.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Zyra.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Blitzcrank.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_64&v=1668492741460"
+                            width="32" height="32"> 블리츠크랭크</td>
+                    <td>51.83%</td>
+                    <td>8.52%</td>
+                    <td>29.12%</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Taric.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Shaco.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Rell.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Janna.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_64&v=1668492741460"
+                            width="32" height="32"> 잔나</td>
+                    <td>52.59%</td>
+                    <td>6.04%</td>
+                    <td>2.03%</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Sona.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Nami.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Zyra.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Renata.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_64&v=1668492741460"
+                            width="32" height="32"> 레나타 클라스크</td>
+                    <td>50.93%</td>
+                    <td>7.21%</td>
+                    <td>4.16%</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Xerath.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Velkoz.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Heimerdinger.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Soraka.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_64&v=1668492741460"
+                            width="32" height="32"> 소라카</td>
+                    <td>51.12%</td>
+                    <td>6.63%</td>
+                    <td>3.23%</td>
+                    <td><img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Blitzcrank.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Velkoz.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                    <img
+                            src="https://opgg-static.akamaized.net/meta/images/lol/champion/Sona.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_48&v=1668492741460"
+                            width="24" height="24"</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
